@@ -1,2 +1,2 @@
-# dsa-problems
-The project contains codebase for dsa problem practice
+# sorting-problems
+The project contains codebase for sorting problem practice
