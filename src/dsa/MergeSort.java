@@ -1,6 +1,6 @@
 package dsa;
 
-public class Sorting {
+public class MergeSort {
 
     public static void main(String args[]) {
 
@@ -13,6 +13,14 @@ public class Sorting {
 
     }
 
+    /**
+     * makes use of recursion and call to mergedSortedArrays method to sort the unsorted array
+     *
+     * @param inputArr an unsorted array
+     * @param start    first index of the array
+     * @param end      last end of the array
+     * @return sorted array
+     */
     private static int[] mergeSort(int[] inputArr, int start, int end) {
         if (start == end) {
             int[] baseArr = new int[1];
@@ -25,7 +33,13 @@ public class Sorting {
         return mergeSortedArrays(leftSortedArray, rightSortedArray);
     }
 
-
+    /**
+     * given two sorted arrays, the method merges them into natural sorting order
+     *
+     * @param arr1 first sorted array
+     * @param arr2 second sorted array
+     * @return merged sorted array
+     */
     private static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
         int sizeOfMergedArray = arr1.length + arr2.length;
         int[] mergedArray = new int[sizeOfMergedArray];
