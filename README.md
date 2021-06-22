@@ -1,2 +1,2 @@
-# sorting-problems
-The project contains codebase for sorting problem practice
+# DS-Algo-Problems
+The project contains codebase for ds-algo problems.
