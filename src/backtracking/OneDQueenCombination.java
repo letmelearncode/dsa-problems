@@ -9,6 +9,7 @@ public class OneDQueenCombination {
         boolean[] visited = new boolean[noOfBoxes];
         printCombination(0, noOfQueens, visited, "", -1);
         System.out.println("Total count = " + count);
+
     }
 
     private static void printCombination(int qvsf, int noOfQueens, boolean[] visited, String ans, int lastBoxUsed) {
