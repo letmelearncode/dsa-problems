@@ -13,18 +13,23 @@ public class StackReversal {
     stack.push(6);
     stack.push(7);
     stack.push(8);
-    Stack<Integer> rev = reverseStack(stack);
-    for (int n : rev) {
-      System.out.println(n);
+    System.out.println("Before reverse peeking " + stack.peek());
+    Stack<Integer> helper = new Stack<>();
+    reverseStack(stack, helper, 0);
+    while (!helper.isEmpty()) {
+      stack.push(helper.pop());
     }
 
+    System.out.println("After reverse peeking " + stack.peek());
   }
 
-  public static Stack<Integer> reverseStack(Stack<Integer> stack) {
-    Stack<Integer> reverseStack = new Stack<>();
-    while (!stack.isEmpty()) {
-      reverseStack.push(stack.pop());
+  public static void reverseStack(Stack<Integer> stack, Stack<Integer> helper,
+      int index) {
+    if (stack.isEmpty()) {
+      return;
     }
-    return reverseStack;
+    int num = stack.pop();
+    reverseStack(stack, helper, index + 1);
+    helper.push(num);
   }
 }
