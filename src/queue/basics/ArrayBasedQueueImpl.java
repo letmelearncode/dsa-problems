@@ -1,4 +1,4 @@
-package queue;
+package queue.basics;
 
 public class ArrayBasedQueueImpl<T> implements IQueue<T> {
 

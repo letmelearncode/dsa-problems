@@ -1,4 +1,4 @@
-package queue;
+package queue.basics;
 
 public class CircularBasedQueue<T> extends ArrayBasedQueueImpl<T> {
 

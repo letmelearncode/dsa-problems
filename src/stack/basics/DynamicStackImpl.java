@@ -1,4 +1,4 @@
-package stack;
+package stack.basics;
 
 /**
  * Implements a dynamic array

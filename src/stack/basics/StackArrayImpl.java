@@ -1,4 +1,4 @@
-package stack;
+package stack.basics;
 
 /**
  * Implements stack as array should have following properties.

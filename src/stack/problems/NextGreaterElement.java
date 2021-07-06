@@ -1,4 +1,4 @@
-package stack;
+package stack.problems;
 
 import java.util.Stack;
 

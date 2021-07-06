@@ -1,4 +1,4 @@
-package queue;
+package queue.basics;
 
 /**
  * FIFO based Generics based Queue Interface containing various methods for operations 1.

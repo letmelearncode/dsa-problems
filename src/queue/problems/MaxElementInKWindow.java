@@ -1,4 +1,4 @@
-package queue;
+package queue.problems;
 
 import java.util.Deque;
 import java.util.LinkedList;

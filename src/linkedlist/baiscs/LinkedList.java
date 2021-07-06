@@ -1,4 +1,4 @@
-package linkedlist;
+package linkedlist.baiscs;
 
 public class LinkedList<T> implements ILinkedList<T> {
 
