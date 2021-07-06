@@ -14,15 +14,8 @@ public class MaxElementInKWindow {
 class Driver {
 
   public static void main(String[] args) {
-    //Scanner s = new Scanner(System.in);
-   /* int n = s.nextInt();
-    int arr[] = new int[n];
-    for (int i = 0; i < n; i++) {
-      arr[i] = s.nextInt();
-    }
-    int k = s.nextInt();
-    s.close();*/
-    int[] arr = {2, 0, 3, 8, 4, 9, 10, 6};
+
+    int[] arr = {1, 3, -1, -3, 5, 3, 6, 7};
     int k = 3;
     printMaxElementInKWindow(arr, k);
   }
@@ -32,12 +25,21 @@ class Driver {
 
     Deque<Integer> deque = new LinkedList<>();
     int i = 0;
+    /**
+     * this loop is for first window and it adds the maximum value in the deque.
+     * After the for loop is over, deque contains only one element which is the max of the window.
+     */
     for (i = 0; i < k; i++) {
       while (!deque.isEmpty() && arr[i] > arr[deque.peekLast()]) {
         deque.removeLast();
       }
       deque.addLast(i);
     }
+    /**
+     *  the following loop executes for subsequent windows
+     *  1. It firstly removes all the elements which do not fall in the current window.
+     *  2. It again iterates in the current window and finds max element and gets rid of the other elements
+     *  */
     for (; i < arr.length; i++) {
       System.out.print(arr[deque.getFirst()] + " ");
       while (!deque.isEmpty() && deque.getFirst() <= i - k) {
