@@ -5,7 +5,7 @@ public class QueueClient {
   public static void main(String[] args) throws Exception {
     IQueue<Integer> myQueue = new ArrayBasedQueueImpl<>(4);
 
-    myQueue.enqueue(4);
+   /* myQueue.enqueue(4);
     myQueue.enqueue(2);
     myQueue.enqueue(40);
     myQueue.enqueue(9);
@@ -30,6 +30,22 @@ public class QueueClient {
     circularQueue.enqueue(34);
     circularQueue.display();
 
+
+*/
+    LinkedListBasedQueueImpl<Integer> queue = new LinkedListBasedQueueImpl<>();
+    queue.enqueue(4);
+    queue.enqueue(4);
+    queue.enqueue(4);
+    queue.enqueue(4);
+    queue.enqueue(4);
+    queue.display();
+    queue.dequeue();
+    queue.dequeue();
+    queue.dequeue();
+    queue.dequeue();
+
+    queue.enqueue(3);
+    System.out.println(queue.size());
 
   }
 
