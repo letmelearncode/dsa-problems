@@ -1,6 +1,6 @@
 package linkedlist.baiscs;
 
-public class LinkedList<T> implements ILinkedList<T> {
+public class MyLinkedList<T> implements ILinkedList<T> {
 
   private static final int DEFAULT_CAPACITY = 10;
   private Node head;
