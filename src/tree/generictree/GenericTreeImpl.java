@@ -38,6 +38,23 @@ public class GenericTreeImpl {
     return this.size;
   }
 
+  private void display(Node node) {
+    String str = .node.data + " -> ";
+    for (int i = 0; i < node.children.size(); i++) {
+      str = str + this.children.get(i) + ", ";
+    }
+    str += "END";
+    System.out.println(str);
+    for (int i = 0; i < node.children.size(); i++) {
+      this.display(node.children.get(i));
+    }
+
+  }
+
+  public void display() {
+    this.display(this.root);
+  }
+
 }
 
 
@@ -58,6 +75,7 @@ class Driver {
   public static void main(String[] args) {
     GenericTreeImpl tree = new GenericTreeImpl();
     System.out.println(tree.size());
+    tree.display();
 
   }
 }
