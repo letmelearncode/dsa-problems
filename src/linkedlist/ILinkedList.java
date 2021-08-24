@@ -1,4 +1,4 @@
-package linkedlist.baiscs;
+package linkedlist;
 
 public interface ILinkedList<T> {
 
@@ -27,5 +27,7 @@ public interface ILinkedList<T> {
   T getLast();
 
   void display();
+
+  void reverse();
 
 }
