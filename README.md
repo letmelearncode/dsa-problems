@@ -1,2 +1,2 @@
-# dsa-problems
-The project contains codebase for dsa problem practice
+# DS-Algo-Problems
+The project contains codebase for ds-algo problems.
