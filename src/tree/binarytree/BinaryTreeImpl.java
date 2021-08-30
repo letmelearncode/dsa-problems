@@ -85,6 +85,25 @@ public class BinaryTreeImpl {
     this.levelOrderTraversal(this.root);
   }
 
+  public boolean find(int data) {
+    return this.find(this.root, data);
+  }
+
+  private boolean find(Node node, int data) {
+
+    if (node == null) {
+      return false;
+    }
+    System.out.println(node.data);
+    if (node.data == data) {
+      return true;
+    }
+
+    return (find(node.left, data) || find(node.right, data));
+
+  }
+
+
   private void levelOrderTraversal(Node node) {
    LinkedList<Node> nodes = new LinkedList<>();
    nodes.add(node);
@@ -183,6 +202,7 @@ class Driver {
     System.out.println(tree.height());
     tree.preOrderTraversal();
     System.out.println("");
+    System.out.println(tree.find(70));
     tree.inOrderTraversal();
     System.out.println("");
     tree.postOrderTraversal();
