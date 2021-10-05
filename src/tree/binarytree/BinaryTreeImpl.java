@@ -88,9 +88,38 @@ public class BinaryTreeImpl {
     this.levelOrderTraversal(this.root);
   }
 
-  public boolean find(int data) {
-    return this.find(this.root, data);
+  public void iterativeInOrderTraversal() {
+    this.iterativeInOrderTraversal(this.root);
   }
+
+  public int sumOfLeafNodes() {
+    return this.sumOfLeafNodes(this.root);
+  }
+
+  private int sumOfLeafNodes(Node node) {
+
+    Stack<Node> nodeStack = new Stack<>();
+    int sum = 0;
+
+    while (true) {
+      if (node != null) {
+        nodeStack.push(node);
+        node = node.left;
+      } else {
+        if (nodeStack.isEmpty()) {
+          break;
+        }
+        node = nodeStack.pop();
+        if (node.right == null && node.left == null) {
+          sum += node.data;
+        }
+
+        node = node.right;
+      }
+    }
+    return sum;
+  }
+
 
   public void inOrderIterativeTraversal() {
     this.inOrderIterativeTraversal(this.root);
@@ -117,18 +146,28 @@ public class BinaryTreeImpl {
     }
   }
 
-  private boolean find(Node node, int data) {
 
-    if (node == null) {
-      return false;
+  private void iterativeInOrderTraversal(Node node) {
+
+    Stack<Node> nodeStack = new Stack<>();
+    String output = "";
+
+    while (true) {
+      if (node != null) {
+        nodeStack.push(node);
+        node = node.left;
+      } else {
+        if (!nodeStack.isEmpty()) {
+          node = nodeStack.pop();
+          output = output + " " + node.data;
+          node = node.right;
+        } else {
+          break;
+        }
+      }
+
     }
-    System.out.println(node.data);
-    if (node.data == data) {
-      return true;
-    }
-
-    return (find(node.left, data) || find(node.right, data));
-
+    System.out.println(output);
   }
 
 
@@ -148,6 +187,25 @@ public class BinaryTreeImpl {
     }
     System.out.println("");
   }
+
+  public boolean find(int data) {
+    return this.find(this.root, data);
+  }
+
+  private boolean find(Node node, int data) {
+
+    if (node == null) {
+      return false;
+    }
+    System.out.println(node.data);
+    if (node.data == data) {
+      return true;
+    }
+
+    return (find(node.left, data) || find(node.right, data));
+
+  }
+
 
   private void postOrderTraversal(Node node) {
     if (node == null) {
@@ -213,6 +271,7 @@ public class BinaryTreeImpl {
     }
   }
 
+
 }
 
 // 50 true 24 false false true 67 true 44 false false false
@@ -220,7 +279,7 @@ public class BinaryTreeImpl {
 // Pre Order =  50 25 38 48 18 45 85 60
 // In Order =   38 25 18 48 50 85 45 60
 // post Order = 38 18 48 25 85 60 45 50
-//level order = 50 25 45 38 48 85 60 18
+// level order = 50 25 45 38 48 85 60 18
 class Driver {
 
   public static void main(String[] args) {
@@ -236,6 +295,9 @@ class Driver {
     tree.postOrderTraversal();
     System.out.println("");
     tree.levelOrderTraversal();
+    System.out.println("");
+    tree.iterativeInOrderTraversal();
+    System.out.println(tree.sumOfLeafNodes());
 
   }
 }

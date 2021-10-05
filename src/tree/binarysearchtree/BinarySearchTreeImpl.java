@@ -2,7 +2,7 @@ package tree.binarysearchtree;
 
 public class BinarySearchTreeImpl {
 
-  private class Node {
+  private static class Node {
 
     int data;
     Node left;
@@ -63,6 +63,7 @@ public class BinarySearchTreeImpl {
       return;
     }
     if (item > node.data) {
+      assert node.right != null;
       add(node.right, item);
     } else if (item < node.data) {
       add(node.left, item);
