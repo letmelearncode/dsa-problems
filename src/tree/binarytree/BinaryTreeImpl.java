@@ -1,7 +1,10 @@
 package tree.binarytree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class BinaryTreeImpl {
 
@@ -89,6 +92,31 @@ public class BinaryTreeImpl {
     return this.find(this.root, data);
   }
 
+  public void inOrderIterativeTraversal() {
+    this.inOrderIterativeTraversal(this.root);
+  }
+
+  private void inOrderIterativeTraversal(Node node) {
+    Node currentNode = this.root;
+    Stack<Node> nodeStack = new Stack<>();
+    List<Integer> numbers = new ArrayList<>();
+    nodeStack.push(currentNode);
+    while (!nodeStack.isEmpty()) {
+
+      if (currentNode.left != null) {
+        currentNode = currentNode.left;
+        nodeStack.push(currentNode);
+      } else if (currentNode.right != null) {
+        currentNode = currentNode.right;
+        nodeStack.push(currentNode);
+      } else {
+        Node lastVisitedNode = nodeStack.pop();
+        numbers.add(lastVisitedNode.data);
+        currentNode = lastVisitedNode;
+      }
+    }
+  }
+
   private boolean find(Node node, int data) {
 
     if (node == null) {
@@ -105,19 +133,19 @@ public class BinaryTreeImpl {
 
 
   private void levelOrderTraversal(Node node) {
-   LinkedList<Node> nodes = new LinkedList<>();
-   nodes.add(node);
+    LinkedList<Node> nodes = new LinkedList<>();
+    nodes.add(node);
 
-   while(!nodes.isEmpty()){
-     Node removedNode = nodes.removeFirst();
-     System.out.print(removedNode.data+" ");
-     if(removedNode.left!=null){
-       nodes.addLast(removedNode.left);
-     }
-     if(removedNode.right!=null){
-       nodes.addLast(removedNode.right);
-     }
-   }
+    while (!nodes.isEmpty()) {
+      Node removedNode = nodes.removeFirst();
+      System.out.print(removedNode.data + " ");
+      if (removedNode.left != null) {
+        nodes.addLast(removedNode.left);
+      }
+      if (removedNode.right != null) {
+        nodes.addLast(removedNode.right);
+      }
+    }
     System.out.println("");
   }
 

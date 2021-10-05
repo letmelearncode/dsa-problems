@@ -36,6 +36,22 @@ public class BinarySearchTreeImpl {
     this.add(this.root, item);
   }
 
+  public boolean isBST() {
+    return this.isBST(this.root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+  }
+
+  private boolean isBST(Node node, int minVal, int maxVal) {
+
+    if(node==null){
+      return true;
+    }
+
+    if (node.data > minVal && node.data < maxVal) {
+      return isBST(node.left, minVal, node.data) && isBST(node.right, node.data,maxVal);
+    }
+    return false;
+  }
+
   private void add(Node node, int item) {
     if (node.right == null && node.left == null) {
       if (item > node.data) {
@@ -118,12 +134,13 @@ public class BinarySearchTreeImpl {
 class Driver {
 
   public static void main(String[] args) {
-    int[] arr = {10, 20, 30, 40, 50, 60, 70, 100};
+    int[] arr = {10, 20, 30, 45, 40, 50, 60, 70, 90};
     BinarySearchTreeImpl bst = new BinarySearchTreeImpl(arr);
     bst.display();
     System.out.println(bst.find(40));
     System.out.println(bst.max());
     bst.add(45);
     bst.display();
+    System.out.println(bst.isBST());
   }
 }
