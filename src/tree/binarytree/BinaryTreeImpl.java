@@ -95,12 +95,33 @@ public class BinaryTreeImpl {
         return this.sumOfLeafNodes(this.root);
     }
 
-    private int sumOfLeafNodes(Node node){
+    /**
+     * diameter is the maximum distance between two nodes in the tree
+     *
+     * @return value of diameter
+     */
+    public int diameter() {
+        return this.diameter(this.root);
+    }
 
-        if(node == null){
+    private int diameter(Node node) {
+        if (node == null) {
             return 0;
         }
-        if(node.left==null && node.right==null)
+        int diameterWhenRootIsInvolved = this.height(node.right) + this.height(node.left) + 2;
+        int diameterInLeftSubTree = this.diameter(node.left);
+        int diameterInRightSubTree = this.diameter(node.right);
+
+        return Math.max(diameterWhenRootIsInvolved, Math.max(diameterInLeftSubTree, diameterInRightSubTree));
+
+    }
+
+    private int sumOfLeafNodes(Node node) {
+
+        if (node == null) {
+            return 0;
+        }
+        if (node.left == null && node.right == null)
             return node.data;
 
         return sumOfLeafNodes(node.left) + sumOfLeafNodes(node.right);
@@ -281,6 +302,7 @@ class Driver {
         System.out.println("");
         tree.iterativeInOrderTraversal();
         System.out.println(tree.sumOfLeafNodes());
+        System.out.println(tree.diameter());
 
     }
 }
