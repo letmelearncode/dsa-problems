@@ -1,7 +1,6 @@
 package tree.binarytree;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -104,6 +103,21 @@ public class BinaryTreeImpl {
         return this.diameter(this.root);
     }
 
+    /**
+     * optimised approach for diameter calculation
+     *
+     * @return diameter of the tree
+     */
+    public int diameterBetter() {
+        return this.diameterBetter(this.root).diameter;
+    }
+
+    /**
+     * The method uses 0(n^2) complexity as height function is called multiple times for the same node.
+     *
+     * @param node input node for the recursive call
+     * @return diameter of the tree i.e. maximum distance between any two nodes in the tree.
+     */
     private int diameter(Node node) {
         if (node == null) {
             return 0;
@@ -113,6 +127,28 @@ public class BinaryTreeImpl {
         int diameterInRightSubTree = this.diameter(node.right);
 
         return Math.max(diameterWhenRootIsInvolved, Math.max(diameterInLeftSubTree, diameterInRightSubTree));
+
+    }
+
+    /**
+     * The method returns diameter in 0(n) time using bottom up approach where multiple calls to get height for
+     * same node is avoided by storing it in the DiameterPair instance in the first call itself.
+     *
+     * @param node input node for the recursive call
+     * @return diameter of the tree i.e. maximum distance between any two nodes in the tree.
+     */
+    private DiameterPair diameterBetter(Node node) {
+        if (node == null) {
+            return new DiameterPair(-1, 0);
+        }
+
+        DiameterPair leftDia = diameterBetter(node.left);
+        DiameterPair rightDia = diameterBetter(node.right);
+        DiameterPair myDiaPair = new DiameterPair();
+        myDiaPair.height = Math.max(leftDia.height, rightDia.height) + 1;
+        myDiaPair.diameter = Math.max(leftDia.height + rightDia.height + 2, leftDia.diameter + rightDia.diameter);
+
+        return myDiaPair;
 
     }
 
@@ -303,6 +339,20 @@ class Driver {
         tree.iterativeInOrderTraversal();
         System.out.println(tree.sumOfLeafNodes());
         System.out.println(tree.diameter());
+        System.out.println(tree.diameterBetter());
 
+    }
+}
+
+class DiameterPair {
+    int height;
+    int diameter;
+
+    public DiameterPair() {
+    }
+
+    public DiameterPair(int height, int diameter) {
+        this.height = height;
+        this.diameter = diameter;
     }
 }
