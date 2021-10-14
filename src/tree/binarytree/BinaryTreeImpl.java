@@ -96,8 +96,7 @@ public class BinaryTreeImpl {
     return this.sumOfLeafNodes(this.root);
   }
 
-  private int sumOfLeafNodes(Node node) {
-
+ /* private int sumOfLeafNodes(Node node) {
     Stack<Node> nodeStack = new Stack<>();
     int sum = 0;
 
@@ -113,11 +112,43 @@ public class BinaryTreeImpl {
         if (node.right == null && node.left == null) {
           sum += node.data;
         }
-
         node = node.right;
       }
     }
     return sum;
+  }*/
+    /**
+     * diameter is the maximum distance between two nodes in the tree
+     *
+     * @return value of diameter
+     */
+    public int diameter() {
+        return this.diameter(this.root);
+    }
+
+    private int diameter(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        int diameterWhenRootIsInvolved = this.height(node.right) + this.height(node.left) + 2;
+        int diameterInLeftSubTree = this.diameter(node.left);
+        int diameterInRightSubTree = this.diameter(node.right);
+
+        return Math.max(diameterWhenRootIsInvolved, Math.max(diameterInLeftSubTree, diameterInRightSubTree));
+
+    }
+
+    private int sumOfLeafNodes(Node node) {
+
+        if (node == null) {
+            return 0;
+        }
+        if (node.left == null && node.right == null)
+            return node.data;
+
+        return sumOfLeafNodes(node.left)+sumOfLeafNodes(node.right);
+
+
   }
 
 
@@ -282,6 +313,7 @@ public class BinaryTreeImpl {
 // level order = 50 25 45 38 48 85 60 18
 class Driver {
 
+
   public static void main(String[] args) {
     BinaryTreeImpl tree = new BinaryTreeImpl();
     System.out.println(tree.size());
@@ -300,4 +332,5 @@ class Driver {
     System.out.println(tree.sumOfLeafNodes());
 
   }
+
 }
