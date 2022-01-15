@@ -46,7 +46,8 @@ Bit Masking
     6.2. **Setting ith bit**
         - 1<<i and take | with given number. Result will have ith bit set.     
     6.3. **Clearing ith bit**
-        -       
+        -  mask = ~ (1<<i)
+        -  result = num & mask   
     6.4. **Counting no. of set bits**
         -   
     6.5. **Find numbers of bits to change to convert A to B**
