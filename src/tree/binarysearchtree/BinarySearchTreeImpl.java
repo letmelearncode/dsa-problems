@@ -142,6 +142,8 @@ class Driver {
     System.out.println(bst.max());
     bst.add(45);
     bst.display();
+
     System.out.println(bst.isBST());
   }
+
 }

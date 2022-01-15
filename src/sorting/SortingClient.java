@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//Time Complexity of Bubble, Selection & Insertion sort = O(n^2)
+//Time complexity of Merge Sort/ Heap Sort/ Quick Sort = O(n*log(n))
 public class SortingClient {
 
   public static void main(String[] args) {
