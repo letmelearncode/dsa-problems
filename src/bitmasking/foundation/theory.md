@@ -1,13 +1,13 @@
 Bit Masking
 -----------------
-1. Decimal to binary conversion
+1. **Decimal to binary conversion**
     * Decimal numbers follow base of 10.
-      - 793 = 7*10^2 + 9*10^1 + 3*10^0 = 700+90+3
+      - 793 = 7`*`10^2 + 9`*`10^1 + 3`*`10^0 = 700+90+3
     * Binary numbers follow base of 2.
-      - 13 = 1101 = 1*2^3 + 1*2^2 + 0*2^1 + 1*2^0 = 8+4+0+1 = 13
+      - 13 = 1101 = 1`*`2^3 + 1`*`2^2 + 0`*`2^1 + 1`*`2^0 = 8+4+0+1 = 13
     * Decimal to binary conversion
       - Continuous division method by 2, collecting remainder and printing it in reverse order ie last remainder should be first to be printed
-2. Addition & Subtraction of Binary numbers
+2. **Addition & Subtraction of Binary numbers**
     * Addition : 0+0 =0, 1+0=1, 1+1=10 (1 is used as a carry)
       -                    1101 (13+9 = 22)
                            1001
@@ -21,7 +21,7 @@ Bit Masking
         - here, negative of 5 would be calculated using 2's compliment and result would be added to 13.
         - 5 = 00...000101 => -5 => 11..111010 => 111.1111010 +0...0000001 => 11.11011
           => 13+(-5) = 000000..0001101 + 11...111011 = 000.001000 = 8
-3. Bitwise operators
+3. **Bitwise operators**
     a  b  | & ^
     0  0  0 0 0
     0  1  1 0 1
@@ -33,21 +33,21 @@ Bit Masking
     * NOT (~) - changes each bit to it's opposite (also called 1's compliment)
     * Right Shift (>>) ie a>>b means right shift b number of bits in a. (same as b times running division of a by 2).
     * Left Shift (<<) ie a<<b means left shift b number of bits in a. (same as b times running multiplication of a by 2).
-4. Odd & even numbers checking using bitwise ops
+4. **Odd & even numbers checking using bitwise ops**
     * take & of 1 and the given number, if result is 0, it is an even number, if the result is 1, it is an odd number.
-5. Swapping two numbers without using the third variable can be done using following 3 steps.
-    1. a = a^b
-    2. b = a^b
-    3. a = a^b.
-6. Bit Masking (Process of manipulation of bits in a byte using bitwise operators)   
-    6.1. Finding ith bit
+5. **Swapping two numbers without using the third variable** can be done using following 3 steps.
+    1. a = a ^ b
+    2. b = a ^ b
+    3. a = a ^ b.
+6. **Bit Masking** (Process of manipulation of bits in a byte using bitwise operators)   
+    6.1. **Finding ith bit**
         - 1<<i times and take & with given number. If the result is 0,
           then ith bit was 0, else if result is non zero means ith bit was 1.       
-    6.2. Setting ith bit
+    6.2. **Setting ith bit**
         - 1<<i and take | with given number. Result will have ith bit set.     
-    6.3. Clearing ith bit
+    6.3. **Clearing ith bit**
         -       
-    6.4. Counting no. of set bits
+    6.4. **Counting no. of set bits**
         -   
-    6.5. Find numbers of bits to change to convert A to B
+    6.5. **Find numbers of bits to change to convert A to B**
         -  
