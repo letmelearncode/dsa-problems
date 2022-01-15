@@ -39,9 +39,12 @@ Bit Masking
     1. a = a^b
     2. b = a^b
     3. a = a^b.
-6. Bit Masking
-7. Finding ith bit
-8. Setting ith bit
-9. Clearing ith bit
-10. Counting no. of set bits
-11. Find numbers of bits to change to convert A to B.
+6. Bit Masking ( Process of manipulation of bits in a byte using bitwise operators)
+  6.1. Finding ith bit
+    - 1<<i times and take & with given number. If the result is 0,
+     then ith bit was 0, else if result is non zero means ith bit was 1.
+  6.2. Setting ith bit
+    - 1<<i and take | with given number. Result will have ith bit set.
+  6.3. Clearing ith bit
+  6.4. Counting no. of set bits
+  6.5. Find numbers of bits to change to convert A to B.
