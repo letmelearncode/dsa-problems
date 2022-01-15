@@ -22,12 +22,14 @@ Bit Masking
         - 5 = 00...000101 => -5 => 11..111010 => 111.1111010 +0...0000001 => 11.11011
           => 13+(-5) = 000000..0001101 + 11...111011 = 000.001000 = 8
 3. **Bitwise operators**
+
       | a 	| b 	| & 	| \| 	| ^ 	|
       |---	|---	|---	|----	|---	|
       | 0 	| 0 	| 0 	| 0  	| 0 	|
       | 0 	| 1 	| 0 	| 1  	| 1 	|
       | 1 	| 0 	| 0 	| 1  	| 1 	|
       | 1 	| 1 	| 1 	| 1  	| 0 	|
+      
     * AND (&) - sets only when both are 1.
     * OR (|) - sets if at least one operand is 1.
     * XOR (^) - sets only if operands are not same.
