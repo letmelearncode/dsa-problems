@@ -33,6 +33,8 @@ Bit Masking
     * AND (&) - sets only when both are 1.
     * OR (|) - sets if at least one operand is 1.
     * XOR (^) - sets only if operands are not same.
+      1. A ^ A = 0
+      2. A ^ 0 = A 
     * NOT (~) - changes each bit to it's opposite (also called 1's compliment)
     * Right Shift (>>) ie a>>b means right shift b number of bits in a. (same as b times running division of a by 2).
     * Left Shift (<<) ie a<<b means left shift b number of bits in a. (same as b times running multiplication of a by 2).
@@ -44,14 +46,27 @@ Bit Masking
     3. a = a ^ b.
 6. **Bit Masking** (Process of manipulation of bits in a byte using bitwise operators)   
     6.1. **Finding ith bit**
-        - 1<<i times and take & with given number. If the result is 0,
-          then ith bit was 0, else if result is non zero means ith bit was 1.       
+      - mask = 1<<i 
+      - result  = num & mask 
+      - If the result is 0, then ith bit was 0, else if result is non zero means ith bit was 1.
+             
     6.2. **Setting ith bit**
-        - 1<<i and take | with given number. Result will have ith bit set.     
+      - mask = 1<<i 
+      - result = num | mask. 
+      - Result will have ith bit set. 
+            
     6.3. **Clearing ith bit**
-        -  mask = ~ (1<<i)
-        -  result = num & mask   
-    6.4. **Counting no. of set bits**
-        -   
-    6.5. **Find numbers of bits to change to convert A to B**
-        -  
+      -  mask = ~(1<<i)
+      -  result = num & mask 
+        
+    6.4. **Counting no. of total bits**
+      - no. of bits in a num = log<sub>2</sub> num + 1. 
+      
+    6.5. **Counting no. of total set bits if totals bits are n**
+      - **Non-optimal Sol(0(n))** : Keep on taking & of 1 and num and if result comes to 1, increment the count and update the num by num>>1. Keep on doing the same till num becomes 0. 
+             Final value of count will be no. of set bits.  
+      - **Optimal Sol** : keep on taking num & (num-1), update the num as earlier result, increment the count till result is non-zero. 
+           
+    6.6. **Find numbers of bits to change to convert A to B**
+      - mask = A ^ B 
+      - count no. of set bit in mask by checking running n & (n-1) produces non-zero result.(as explained in above optimal sol) 
