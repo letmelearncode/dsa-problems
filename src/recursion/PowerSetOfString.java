@@ -4,7 +4,7 @@ public class PowerSetOfString {
 
   public static void main(String[] args) {
     PowerSetOfString ps = new PowerSetOfString();
-    ps.getPowerSet("abcd", 0, "a");
+    ps.getPowerSet("abcd", 0, "");
   }
 
   private void getPowerSet(String string, int index, String curr) {
