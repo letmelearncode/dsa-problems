@@ -24,7 +24,7 @@ Heaps have several real-world applications due to their efficient time complexit
 
 3. **Dijkstra's Algorithm**: Heaps are used in Dijkstra's algorithm, a popular algorithm for finding the shortest path in a graph. The algorithm relies on a priority queue to efficiently select the next vertex with the smallest distance during the exploration process.
 
-4. **Heap Sort**: Heapsort is a sorting algorithm that uses a heap to sort elements in ascending or descending order. It leverages the heap property to extract the maximum or minimum element and builds a sorted array. Although not as widely used as other sorting algorithms like quicksort or mergesort, heapsort is valuable in scenarios where in-place sorting is required.
+4. **Heap Sort**: Heapsort is a sorting algorithm that uses a heap to sort elements in ascending or descending order. It leverages the heap property to extract the maximum or minimum element and builds a sorted array. Although not as widely used as other sorting algorithms like quicksort or mergesort, heapsort is valuable in scenarios where **in-place** sorting is required.
 
 5. **Event-driven Systems**: Heaps are useful in event-driven systems, such as event scheduling or event-driven simulations. Events can be inserted into a heap with their associated timestamps, and the heap allows efficient retrieval of the next event based on the timestamp.
 

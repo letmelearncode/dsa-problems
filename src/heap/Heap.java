@@ -24,8 +24,20 @@ public class Heap {
         }
     }
 
-    public Integer delete(Integer element){
-        return null;
+    //For min-heap, it deletes the root node element as it has the highest priority
+    public Integer delete(){
+
+        this.swap(0, this.list.size()-1);
+        int leftChildIndex = 2*0+1;
+        int rightChildIndex = 2*0+2;
+
+        return this.list.get(this.list.size()-1);
+    }
+
+    private void downHeapify(int index){
+        if(index>=this.list.size()-1){
+            return;
+        }
     }
 
     public Integer get(int index){
