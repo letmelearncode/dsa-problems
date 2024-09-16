@@ -10,12 +10,14 @@ class GraphAsAdjacencyList {
     int V = 5;
     //int[][] edges = {{0,1},{0,4},{1,2},{1,3},{1,4},{2,3},{3,4}};
     //int[][] edges = {{3, 7}, {4, 7}, {5, 7}, {1, 8}, {6, 2}, {0, 6}};
-    int[][] edges = {{0, 1}, {1, 2}, {1, 19}, {0, 17}, {17, 23}, {17, 6}, {2, 4}, {2, 7}, {23, 5},
+    int[][] edges = {{0, 1}, {1, 2}, {1, 19}, {0, 17}, {17, 23}, {17, 6}, {2, 4}, {2, 0}, {2, 7},
+        {23, 5},
         {23, 16}, {16, 10}};
 
     List<List<Integer>> adjacencyList = createGraphAsAdjacencyList(24, edges);
     //printGraph(adjacencyList);
-    bfsTraversal(adjacencyList, 0);
+    //bfsTraversal(adjacencyList, 0,new int[adjacencyList.size()]);
+    dfsTraversal( 0, new int[adjacencyList.size()], adjacencyList);
 
 
   }
@@ -48,9 +50,9 @@ class GraphAsAdjacencyList {
     }
   }
 
-  public static void bfsTraversal(List<List<Integer>> adjacencyList, Integer node) {
+  public static void bfsTraversal(List<List<Integer>> adjacencyList, Integer node,
+      int[] visitedNodes) {
 
-    int[] visitedNodes = new int[adjacencyList.size()];
     Queue<Integer> nodeQueue = new LinkedList<>();
     nodeQueue.add(node);
     while (nodeQueue.peek() != null) {
@@ -62,6 +64,23 @@ class GraphAsAdjacencyList {
         nodeQueue.addAll(adjacentElements);
       }
     }
+
+    for (int i = 0; i < visitedNodes.length; i++) {
+      if (visitedNodes[i] == 0 && !adjacencyList.get(i).isEmpty()) {
+        bfsTraversal(adjacencyList, i, visitedNodes);
+      }
+    }
   }
 
+
+  static void dfsTraversal(Integer node, int[] visitedNodes, List<List<Integer>> adjacencyList) {
+    if (visitedNodes[node] == 0) {
+      System.out.print(node + " ");
+      visitedNodes[node] = 1;
+      List<Integer> adjacentNodes = adjacencyList.get(node);
+      for (int i = 0; i < adjacentNodes.size(); i++) {
+        dfsTraversal(adjacentNodes.get(i), visitedNodes, adjacencyList);
+      }
+    }
+  }
 }
