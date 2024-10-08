@@ -1,0 +1,12 @@
+1. Segment Tree - theory, implementation, application,
+2. QuadTree(used for storing and manipulating location based data in spatial databases)
+and its problems in proximity searches and how Hilbert's curve solve that issue and its application
+3. geoHash - Location Based Service
+4. Leaky Bucket - Rate Limiter
+5. Token Bucket - Rate Limiter
+6. Trie - Search Autocomplete
+7. Consistent Hashing - Balance the load within a cluster
+8. RSync - File Transfer
+9. Raft/Paxos - Consensus Algorithm
+10.BloomFilter - Eliminate Costly lookups
+11.MerkleTree - Identify inconsistency among nodes

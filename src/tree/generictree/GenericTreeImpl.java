@@ -39,9 +39,9 @@ public class GenericTreeImpl {
   }
 
   private void display(Node node) {
-    String str = .node.data + " -> ";
+    String str = node.data + " -> ";
     for (int i = 0; i < node.children.size(); i++) {
-      str = str + this.children.get(i) + ", ";
+      str = str + node.children.get(i).data + ", ";
     }
     str += "END";
     System.out.println(str);
