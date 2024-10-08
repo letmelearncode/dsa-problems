@@ -1,5 +1,7 @@
 package arrays.easy;
-
+/**
+Calculate Best time to buy or sell stock
+**/
 public class BestTimeToBuyAndSellStock {
 
   public static void main(String[] args) {
